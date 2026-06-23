@@ -415,13 +415,13 @@
 
     <div class="wrap">
       <div class="header">
+        <a class="reset-btn" href="index.html">⬅️ Back</a>
         <h1>Unit 2</h1>
         <div class="hud">
           <button class="reset-btn" id="voiceBtn" onclick="toggleVoice()">
             🔊 Voice
           </button>
           <button class="reset-btn" id="resetBtn">Play Again 🦜</button>
-          <a class="reset-btn" href="index.html">⬅️ Back</a>
         </div>
       </div>
 
@@ -455,6 +455,7 @@
       function getCtx() {
         if (!audioCtx)
           audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === "suspended") audioCtx.resume();
         return audioCtx;
       }
       function playTone(freq, startTime, duration, gainPeak) {
