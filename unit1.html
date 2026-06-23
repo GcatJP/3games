@@ -116,28 +116,26 @@
       }
 
       /* header row */
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        padding: 4px 0 6px;
-        gap: clamp(8px, 2vw, 16px);
-      }
-      h1 {
-        font-family: "Chalkboard SE", "Comic Sans MS", cursive, sans-serif;
-        font-size: clamp(16px, 5.5vw, 50px);
-        color: var(--sun);
-        -webkit-text-stroke: 1.5px var(--ocean-deep);
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-      .hud {
-        display: flex;
-        align-items: center;
-        gap: clamp(4px, 1.5vw, 10px);
-        flex-wrap: nowrap;
-      }
+     .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding: 4px 0 6px;
+  position: relative;
+}
+
+h1 {
+  font-family: "Chalkboard SE", "Comic Sans MS", cursive, sans-serif;
+  font-size: clamp(16px, 5.5vw, 50px);
+  color: var(--sun);
+  -webkit-text-stroke: 1.5px var(--ocean-deep);
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+     
       .pill {
         background: var(--white);
         border: 2.5px solid var(--ocean);
@@ -414,12 +412,11 @@
     <div class="cloud cloud2"></div>
 
     <div class="wrap">
-      <div class="header">
-        <h1>Unit 2</h1>
-        <div class="hud">
-          <a class="reset-btn" href="index.html">⬅️ Back</a>
-          <button class="reset-btn" id="resetBtn">Play Again 🦜</button>
-        </div>
+     <div class="header">
+  <a class="reset-btn" href="index.html">⬅️ Back</a>
+  <h1>Unit 2</h1>
+  <button class="reset-btn" id="resetBtn">Play Again 🦜</button>
+</div>
       </div>
 
       <div class="grid" id="grid"></div>
