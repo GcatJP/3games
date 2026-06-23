@@ -628,10 +628,19 @@
         utterance.lang = "en-GB";
         utterance.rate = 0.9;
         utterance.pitch = 1.1;
-        const voices = window.speechSynthesis.getVoices();
-        const preferred = voices.find((v) => v.name === "Daniel");
-        if (preferred) utterance.voice = preferred;
-        window.speechSynthesis.speak(utterance);
+
+        const trySpeak = () => {
+          const voices = window.speechSynthesis.getVoices();
+          const preferred = voices.find((v) => v.name === "Daniel");
+          if (preferred) utterance.voice = preferred;
+          window.speechSynthesis.speak(utterance);
+        };
+
+        if (window.speechSynthesis.getVoices().length === 0) {
+          window.speechSynthesis.onvoiceschanged = trySpeak;
+        } else {
+          trySpeak();
+        }
       }
 
       function toggleVoice() {
