@@ -221,7 +221,7 @@
         font-size: clamp(11px, 2.6vw, 15px);
       }
 
-      /* choice grid: 3 image buttons */
+      /* choice grid: 3 text buttons */
       .choice-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -243,18 +243,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 6%;
+        padding: 8%;
         cursor: pointer;
         transition: transform 0.1s ease;
+        font-family: "Chalkboard SE", "Comic Sans MS", cursive, sans-serif;
+        font-weight: bold;
+        font-size: clamp(13px, 3.2vw, 20px);
+        color: var(--ink);
+        text-align: center;
+        line-height: 1.25;
       }
-      .choice-btn img {
-        width: 100%;
-        height: 100%;
-        min-width: 0;
-        min-height: 0;
-        object-fit: contain;
-        pointer-events: none;
-      }
+
       .choice-btn:active {
         transform: scale(0.96);
       }
@@ -459,12 +458,12 @@
     <div class="wrap">
       <div class="header">
         <a class="reset-btn" href="index.html">⬅️ Back</a>
-        <h1>Unit 1</h1>
+        <h1>Unit 19</h1>
         <button class="reset-btn" id="resetBtn">Play Again 🦜</button>
       </div>
 
       <div class="stage">
-        <div class="progress" id="progress">Question 1 of 16</div>
+        <div class="progress" id="progress">Question 1 of 20</div>
 
         <div class="voice-wrap">
           <button
@@ -491,7 +490,7 @@
           🔊
         </button>
         <p>
-          Tap the speaker to hear the sentence, then tap the matching picture!
+          Tap the speaker to hear the sentence, then tap the matching answer!
         </p>
         <button class="ok-btn" id="introOkBtn">OK</button>
       </div>
@@ -507,13 +506,21 @@
     </div>
 
     <script>
-      /* ---- QUESTIONS — replace image paths with your real files ----
+      /* ---- QUESTIONS ----
          NOTE: QUESTIONS[0] is used for the "how to play" example demo.
          Every round, this full list is duplicated (so each item shows
          twice) then shuffled. */
       const QUESTIONS = [
-        { img: "../images/happy.png", answer: "I'm happy." },
-        { img: "../images/hot1.png", answer: "I'm hot." },
+        { word: "Yes, I am." },
+        { word: "No, I'm not." },
+        { word: "Yes, he is." },
+        { word: "No, he isn't." },
+        { word: "Yes, she is." },
+        { word: "No, she isn't." },
+        { word: "Yes, it is." },
+        { word: "No, it isn't." },
+        { word: "Yes, they are." },
+        { word: "No, they aren't." },
       ];
 
       /* ---- audio ---- */
@@ -607,7 +614,7 @@
       /* ---- intro demo ---- */
       const introVoiceBtn = document.getElementById("introVoiceBtn");
       introVoiceBtn.addEventListener("click", () =>
-        speak(QUESTIONS[0].answer, introVoiceBtn),
+        speak(QUESTIONS[0].word, introVoiceBtn),
       );
 
       /* ---- game state ---- */
@@ -623,7 +630,7 @@
       const overlay = document.getElementById("overlay");
 
       function buildChoices(correctItem) {
-        const others = QUESTIONS.filter((q) => q.img !== correctItem.img);
+        const others = QUESTIONS.filter((q) => q.word !== correctItem.word);
         const distractors = shuffle(others).slice(0, 2);
         return shuffle([correctItem, ...distractors]);
       }
@@ -640,17 +647,14 @@
         choices.forEach((choice) => {
           const btn = document.createElement("button");
           btn.className = "choice-btn";
-          btn.dataset.answer = choice.answer;
-          const img = document.createElement("img");
-          img.src = choice.img;
-          img.alt = "";
-          btn.appendChild(img);
+          btn.dataset.answer = choice.word;
+          btn.textContent = choice.word;
           btn.addEventListener("click", () => checkChoice(btn, choice, q));
           choiceGrid.appendChild(btn);
         });
 
         // Auto-play the phrase as soon as the question loads.
-        setTimeout(() => speak(q.answer, voiceBtn), 350);
+        setTimeout(() => speak(q.word, voiceBtn), 350);
       }
 
       function checkChoice(btnEl, choice, correctItem) {
@@ -658,7 +662,7 @@
         getCtx();
         tries++;
 
-        if (choice.img === correctItem.img) {
+        if (choice.word === correctItem.word) {
           locked = true;
           btnEl.classList.add("correct");
           document
@@ -706,7 +710,7 @@
 
       voiceBtn.addEventListener("click", () => {
         const q = gameQuestions[currentIndex];
-        if (q) speak(q.answer, voiceBtn);
+        if (q) speak(q.word, voiceBtn);
       });
 
       document.getElementById("resetBtn").addEventListener("click", newGame);
