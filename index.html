@@ -57,6 +57,10 @@
       body {
         font-family: var(--font-chalk);
         background: linear-gradient(to bottom, #6593f6, #08328c);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -134,7 +138,9 @@
       /* LANDSCAPE */
       @media screen and (orientation: landscape) {
         body {
-          background: linear-gradient(to bottom, #e5aa60, #bb581c);
+          background-image: url("./images/bg_land3.png");
+          background-size: cover;
+          background-position: center;
           overflow: hidden;
         }
 
@@ -167,7 +173,10 @@
       /* LANDSCAPE IPHONE */
       @media screen and (orientation: landscape) and (max-height: 450px) {
         body {
-          background: linear-gradient(to bottom, #e5aa60, #bb581c);
+          overflow-y: auto;
+          background-image: url("./images/bg_land3.png");
+          background-size: cover;
+          background-position: center;
           width: 100vw !important;
           min-width: 100vw !important;
           overflow-x: hidden !important;
@@ -195,7 +204,9 @@
       @media screen and (orientation: portrait) {
         body {
           overflow-y: auto;
-          background: linear-gradient(to bottom, #e5aa60, #bb581c);
+          background-image: url("./images/bg_port3.png");
+          background-size: cover;
+          background-position: center;
         }
 
         h1 {
