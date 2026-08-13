@@ -14,11 +14,11 @@
     <meta name="apple-mobile-web-app-title" content="Adventure Island" />
 
     <!-- App icons (multiple resolutions) -->
-    <link rel="apple-touch-icon" href="../images/home3.png" />
+    <link rel="apple-touch-icon" href="../images/home4.png" />
 
     <link rel="manifest" href="manifest.json" />
 
-    <title>Adventure Island 3</title>
+    <title>Adventure Island 4</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,25 +46,6 @@
         --colour-heading-text: orange;
       }
 
-      .rotate-message {
-        display: none;
-        position: fixed;
-        inset: 0;
-        z-index: 100;
-        background: orange;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 2em;
-      }
-      .rotate-message p {
-        color: var(--colour-heading-text);
-        -webkit-text-stroke: 0.8px darkorange;
-        font-family: var(--font-chalk);
-        font-weight: bold;
-        font-size: clamp(1.2rem, 6vw, 2rem);
-        line-height: 1.4;
-      }
       html,
       body {
         width: 100%;
@@ -75,10 +56,7 @@
 
       body {
         font-family: var(--font-chalk);
-        background: linear-gradient(180deg, #f4b23e 0%, #e47d31 60%);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        background: linear-gradient(to bottom, #6593f6, #08328c);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -118,14 +96,12 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        gap: 0.4em;
-        padding: 0 0.6em;
+        justify-content: center;
         width: 100%;
         overflow: hidden;
         -webkit-user-select: none;
         user-select: none;
-        -webkit-text-stroke: 2px darkorange;
+        -webkit-text-stroke: 2px orange;
         transition:
           transform 0.1s ease,
           background 0.15s ease;
@@ -134,22 +110,6 @@
       .btn:active {
         transform: scale(0.97);
         background: var(--colour-btn-active);
-      }
-
-      .btn-text {
-        flex: 1;
-        text-align: center;
-        line-height: 1.05;
-      }
-
-      .btn-icon {
-        height: 78%;
-        width: auto;
-        aspect-ratio: 1 / 1;
-        flex-shrink: 0;
-        object-fit: contain;
-        pointer-events: none;
-        user-select: none;
       }
       .back-btn {
         position: fixed;
@@ -176,10 +136,25 @@
         transform: translateY(2px);
         background: var(--colour-btn-active);
       }
+      .back-btn:active {
+        transform: translateY(2px);
+        background: var(--colour-btn-active);
+      }
+      .corner-img {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+        z-index: 10;
+      }
+
       /* LANDSCAPE */
       @media screen and (orientation: landscape) {
         body {
-          background-image: url("images/bg_land3.png");
+          background-image: url("./images/bg_land4.png");
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
           overflow: hidden;
         }
 
@@ -198,53 +173,57 @@
         .grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: repeat(2, 1fr);
-          gap: clamp(10px, 2vw, 24px);
-          width: min(85vw, 900px);
-          height: min(70vh, 460px);
+          grid-template-rows: 1fr;
+          gap: clamp(6px, 1.4vw, 16px);
+          width: min(94vw, 920px);
         }
 
         .btn {
-          font-size: clamp(1rem, 4.5vw, 3.4rem);
-          height: clamp(80px, 45vh, 220px);
+          font-size: clamp(1rem, 6vw, 4rem);
+          height: clamp(60px, 35vh, 180px);
+        }
+
+        .corner-img {
+          top: 0;
+          right: 0;
+          bottom: auto;
+          width: clamp(60px, 12vw, 160px);
+          margin-top: 30px;
+          margin-right: 30px;
         }
       }
 
       /* LANDSCAPE IPHONE */
       @media screen and (orientation: landscape) and (max-height: 450px) {
-        .rotate-message {
-          display: flex;
-        }
-
-        h1,
-        .grid-wrapper,
-        .back-btn {
-          display: none;
-        }
-
         body {
-          background-image: url("images/bg_land3.png");
+          background-image: url("./images/bg_land4.png");
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
           width: 100vw !important;
           min-width: 100vw !important;
           overflow-x: hidden !important;
         }
 
+        h1 {
+          font-size: clamp(1rem, 7vw, 4rem) !important;
+          padding: 0.1em 0.5em !important;
+          margin-top: -3vh !important;
+          margin-bottom: -8vh !important;
+        }
+
         .grid-wrapper {
-          padding: 1vh 4vw 2vh;
+          padding: 1vh 6vw 2vh;
           margin-top: 1vh;
         }
 
-        .grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          grid-template-rows: repeat(2, 1fr) !important;
-          width: min(92vw, 500px) !important;
-          height: min(80vh, 220px) !important;
-          gap: clamp(6px, 1.5vw, 14px) !important;
+        .btn {
+          height: clamp(40px, 28vh, 100px) !important;
+          font-size: clamp(0.9rem, 5vw, 3rem) !important;
         }
 
-        .btn {
-          height: clamp(55px, 34vh, 130px) !important;
-          font-size: clamp(1rem, 6vw, 3.4rem) !important;
+        .corner-img {
+          width: clamp(40px, 8vw, 80px);
         }
       }
 
@@ -252,98 +231,96 @@
       @media screen and (orientation: portrait) {
         body {
           overflow-y: auto;
-          background-image: url("images/bg_port3.png");
+          background-image: url("./images/bg_port4.png");
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
         }
 
         h1 {
           font-size: clamp(1.5rem, 12vw, 4rem);
           padding: 0.3em 0.5em;
-          margin-top: max(20px, env(safe-area-inset-top, 20px));
+          margin-top: 50px;
         }
 
         .grid-wrapper {
-          padding: 2vw 9vw 6vw;
+          padding: 2vw 9vw 16vw;
         }
 
         .grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: clamp(8px, 5vw, 50px);
+          gap: clamp(10px, 10vw, 100px);
           width: 100%;
-          max-width: 520px;
+          max-width: 480px;
         }
 
         .btn {
-          font-size: clamp(1.1rem, 9vw, 3.6rem);
-          height: clamp(80px, 30vw, 250px);
+          font-size: clamp(1rem, 10vw, 4rem);
+          height: clamp(70px, 30vw, 300px);
+        }
+
+        .corner-img {
+          width: clamp(60px, 20vw, 130px);
+          margin-bottom: 30px;
+          margin-right: 30px;
         }
       }
 
       /* PORTRAIT IPHONE */
       @media screen and (orientation: portrait) and (max-width: 430px) {
+        .corner-img {
+          width: clamp(30px, 16vw, 100px) !important;
+        }
         h1 {
-          font-size: clamp(1.1rem, 10.5vw, 3.9rem) !important;
+          font-size: clamp(1.2rem, 12vw, 4rem) !important;
           padding: 0.3em 0.5em !important;
+          margin-top: max(50px, env(safe-area-inset-top, 50px)) !important;
+          -webkit-text-stroke: 1.5px yellow;
           line-height: 1;
-          margin-top: max(40px, env(safe-area-inset-top, 30px)) !important;
         }
 
         .grid-wrapper {
-          padding: 3.5vh 9vw 2vw !important;
+          padding: 5vh 9vw 2vw !important;
+        }
+
+        .grid {
+          gap: 30px !important;
+          width: 100% !important;
+          margin-top: -15vh !important;
         }
 
         .btn {
-          height: clamp(80px, 30vw, 180px) !important;
-          font-size: clamp(1rem, 10vw, 3.1rem) !important;
+          height: clamp(70px, 25vw, 120px) !important;
+          font-size: clamp(0.9rem, 10vw, 3rem) !important;
         }
       }
     </style>
   </head>
 
   <body>
-    <div class="rotate-message">
-      <p>🔄 Please rotate your device to portrait mode!</p>
-    </div>
-
-    <h1>Adventure Island 3</h1>
     <a class="back-btn" href="index.html">← Back</a>
+    <h1>Adventure Island 4</h1>
     <div class="grid-wrapper">
       <div class="grid" id="main-grid">
-        <a
-          class="btn"
-          href="Match up/index.html"
-          style="background-color: orange"
-        >
-          <span class="btn-text">Match Up!</span>
-          <img class="btn-icon" src="images/sm3.png" alt="" />
-        </a>
-
-        <a
-          class="btn"
-          href="Type Up/index.html"
-          style="background-color: orange"
-        >
-          <span class="btn-text">Type Up!</span>
-          <img class="btn-icon" src="images/kt3.png" alt="" />
-        </a>
-
-        <a
-          class="btn"
-          href="Word up/index.html"
-          style="background-color: orange"
-        >
-          <span class="btn-text">Word Up!</span>
-          <img class="btn-icon" src="images/sw3.png" alt="" />
+        <a class="btn" href="Units3_1-10.html" style="background-color: orange">
+          Units 1–10
         </a>
         <a
           class="btn"
-          href="Bridge/index.html"
+          href="Units3_11-20.html"
           style="background-color: orange"
         >
-          <span class="btn-text">Bridge Gap</span>
-          <img class="btn-icon" src="images/kb3.png" alt="" />
+          Units 11–20
         </a>
       </div>
     </div>
+
+    <img
+      class="corner-img"
+      src="./images/kevin.png"
+      alt=""
+      aria-hidden="true"
+    />
   </body>
 </html>
