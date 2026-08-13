@@ -39,7 +39,26 @@
         height: 100dvh;
         overflow: hidden;
         background: linear-gradient(180deg, #f4b23e 0%, #e47d31 60%);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
         font-family: "Trebuchet MS", "Verdana", sans-serif;
+      }
+
+      /* PORTRAIT background */
+      @media (orientation: portrait) {
+        html,
+        body {
+          background-image: url("../images/bg_port3.png");
+        }
+      }
+
+      /* LANDSCAPE background */
+      @media (orientation: landscape) {
+        html,
+        body {
+          background-image: url("../images/bg_land3.png");
+        }
       }
 
       /* decorative */
@@ -120,7 +139,9 @@
         height: clamp(36px, 8vw, 48px);
         background: var(--orange-btn);
         color: var(--white);
+        border: 3px solid var(--sun);
         border-radius: 50%;
+
         text-decoration: none;
         font-size: clamp(16px, 4vw, 22px);
         box-shadow: 0 3px 0 var(--orange-dark);
@@ -189,7 +210,7 @@
         height: 100%;
         background: var(--orange-btn);
         color: var(--white);
-        border: none;
+        border: 3px solid var(--sun);
         border-radius: clamp(10px, 2vw, 18px);
         font-family: "Chalkboard SE", "Comic Sans MS", cursive, sans-serif;
         font-size: clamp(16px, 3.5vw, 34px);
@@ -274,7 +295,7 @@
       <p>🔄 Please rotate your device to portrait mode!</p>
     </div>
 
-    <a class="back-btn" href="../index.html" aria-label="Back">⬅</a>
+    <a class="back-btn" href="../games.html" aria-label="Back">⬅</a>
 
     <div class="sun"></div>
     <div class="cloud cloud1"></div>
