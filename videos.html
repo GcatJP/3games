@@ -101,6 +101,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
+        text-align: center;
         overflow: hidden;
         -webkit-user-select: none;
         user-select: none;
@@ -170,7 +171,7 @@
 
         .grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           grid-template-rows: 1fr;
           gap: clamp(6px, 1.4vw, 16px);
           width: min(96vw, 1000px);
@@ -297,8 +298,8 @@
     <h1>Adventure Island 3</h1>
     <div class="grid-wrapper">
       <div class="grid" id="main-grid">
-        <a class="btn" href="Units3_1-10.html" style="background-color: orange">
-          Units 1–10
+        <a class="btn" href="Units3_1-10.html" style="background-color: orange"
+          >Units<br />1–10
         </a>
 
         <a
@@ -306,10 +307,12 @@
           href="Units3_11-20.html"
           style="background-color: orange"
         >
-          Units 11–20
+          <span class="btn-text">Units<br />11–20</span>
+        </a>
+        <a class="btn" href="listening.html" style="background-color: orange">
+          Audio
         </a>
       </div>
     </div>
-    <img class="corner-img" src="images/kevin.png" alt="" aria-hidden="true" />
   </body>
 </html>
