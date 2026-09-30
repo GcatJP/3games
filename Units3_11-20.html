@@ -110,17 +110,6 @@
       }
 
       /* ----------------------------------------------------------
-         CORNER IMAGE
-      ---------------------------------------------------------- */
-      .corner-img {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        pointer-events: none;
-        z-index: 10;
-      }
-
-      /* ----------------------------------------------------------
          LANDSCAPE — 6 × 4
       ---------------------------------------------------------- */
       @media screen and (orientation: landscape) {
@@ -148,15 +137,6 @@
         .btn-small {
           font-size: clamp(1rem, 4vw, 6rem) !important;
         }
-
-        .corner-img {
-          bottom: 0;
-          right: 0;
-          top: auto;
-          width: clamp(50px, 8vw, 110px);
-          margin-bottom: 30px;
-          margin-right: 80px;
-        }
       }
 
       /* ----------------------------------------------------------
@@ -180,10 +160,6 @@
 
         .btn {
           font-size: clamp(0.6rem, 3.5vw, 3rem) !important;
-        }
-
-        .corner-img {
-          display: none !important;
         }
       }
 
@@ -218,13 +194,6 @@
         }
         .btn-tiny {
           font-size: clamp(1rem, 5vw, 3rem) !important;
-        }
-        .corner-img {
-          position: fixed;
-          bottom: 40px;
-          right: 120px;
-          top: auto;
-          width: clamp(50px, 11vw, 110px) !important;
         }
       }
 
@@ -262,16 +231,6 @@
         .btn-tiny {
           font-size: clamp(0.7rem, 5vw, 2rem) !important;
         }
-
-        .corner-img {
-          position: fixed;
-          bottom: 0 !important;
-          right: 0 !important;
-          top: auto;
-          width: clamp(30px, 6vw, 60px);
-          margin-bottom: 10px !important;
-          margin-right: 50px !important;
-        }
       }
     </style>
   </head>
@@ -280,13 +239,6 @@
     <div class="grid-wrapper">
       <div class="grid" id="main-grid"></div>
     </div>
-
-    <img
-      class="corner-img"
-      src="./images/kevin.png"
-      alt=""
-      aria-hidden="true"
-    />
 
     <script>
       const units = [
@@ -299,23 +251,19 @@
         {
           label: "11a",
           url: "https://player.mediadelivery.net/play/582514/7a7ee658-0225-4c81-9823-3e1168416858",
-          colour: "#c26e12",
+          colour: "#f5a54a",
         },
         {
           label: "11b",
           url: "https://player.mediadelivery.net/play/582514/920ed1d4-6448-4c2e-b76f-3323347ee080",
-          colour: "#e8891e",
+          colour: "#f5a54a",
         },
         {
           label: "12a",
           url: "https://player.mediadelivery.net/play/582514/95070c96-101c-4521-bb82-952b49646d08",
-          colour: "#c26e12",
+          colour: "#e8891e",
         },
-        {
-          label: "12L",
-          url: "https://player.mediadelivery.net/play/582514/700e0526-2f87-4f9b-a1be-695c084729b9",
-          colour: "#f5a54a",
-        },
+
         {
           label: "12b",
           url: "https://player.mediadelivery.net/play/582514/48c68829-c310-48b1-9f17-07e6a325a307",
@@ -329,7 +277,7 @@
         {
           label: "14a",
           url: "https://player.mediadelivery.net/play/582514/0b137335-24f5-4812-b46e-859144c50ef7",
-          colour: "#e8891e",
+          colour: "#f5a54a",
         },
         {
           label: "14b",
@@ -339,7 +287,7 @@
         {
           label: "15a",
           url: "https://player.mediadelivery.net/play/582514/c508e626-8f61-4935-b66f-b0f6a6ad96bb",
-          colour: "#c26e12",
+          colour: "#e8891e",
         },
         {
           label: "15b",
@@ -349,12 +297,12 @@
         {
           label: "16",
           url: "https://player.mediadelivery.net/play/582514/8c7d711c-3e6d-4a6c-a9e9-e9333eab0b47",
-          colour: "#f5a54a",
+          colour: "#c26e12",
         },
         {
           label: "17a",
           url: "https://player.mediadelivery.net/play/582514/32e878eb-2504-4b32-9f02-cb8304034086",
-          colour: "#c26e12",
+          colour: "#f5a54a",
         },
         {
           label: "17b",
@@ -366,15 +314,11 @@
           url: "https://player.mediadelivery.net/play/582514/7658481f-bae8-4aa9-b9ef-5ea5d2fa8d49",
           colour: "#e8891e",
         },
-        {
-          label: "18L",
-          url: "https://player.mediadelivery.net/play/582514/17ec3e74-4f24-4fea-8da7-56d0ce04b9b1",
-          colour: "#c26e12",
-        },
+
         {
           label: "18b",
           url: "https://player.mediadelivery.net/play/582514/e9728a5a-9fe6-4263-a475-bf95d124844c",
-          colour: "#f5a54a",
+          colour: "#e8891e",
         },
         {
           label: "19",
@@ -382,14 +326,13 @@
           colour: "#c26e12",
         },
         {
-          label: "Review",
+          label: "20a",
           url: "https://player.mediadelivery.net/play/582514/41647527-ed9b-46dd-9099-b1188901864c",
-          colour: "#f5a54a",
-          small: true,
+          colour: "#c26e12",
         },
         {
-          label: "Test",
-          url: "https://player.mediadelivery.net/play/582514/5b6ecd4e-6c68-41a2-92cb-a8b927a59b83",
+          label: "20b",
+          url: "https://player.mediadelivery.net/play/582514/41647527-ed9b-46dd-9099-b1188901864c",
           colour: "#c26e12",
         },
         {
@@ -403,6 +346,18 @@
         const grid = document.getElementById("main-grid");
         grid.innerHTML = "";
         units.forEach(function (unit) {
+          var m = unit.url.match(/play\/(\d+)\/([0-9a-f-]{36})/i);
+          if (m) {
+            unit = Object.assign({}, unit, {
+              url:
+                "player3.html?lib=" +
+                m[1] +
+                "&v=" +
+                m[2] +
+                "&back=" +
+                encodeURIComponent(location.pathname.split("/").pop()),
+            });
+          }
           var link = document.createElement("a");
           link.className = "btn";
           link.href = unit.url;
