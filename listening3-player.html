@@ -366,7 +366,9 @@
 
       document.getElementById("title").textContent = `Page ${pageNum}`;
       document.title = `Page ${pageNum} – Adventure Island 3`;
-      player.src = encodeURI(`${BASE_URL}Page ${pageNum}.mp3`);
+      player.src = encodeURI(
+        `${BASE_URL}Page ${pageNum}${pageNum === 52 ? " New" : ""}.mp3`,
+      );
 
       function fmt(t) {
         if (!isFinite(t)) return "0:00";
