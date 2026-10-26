@@ -173,6 +173,21 @@
         min-height: 0;
         overflow: visible;
       }
+      .slot .big {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:
+          "Chalkboard SE", "Comic Sans MS", "Segoe Print", sans-serif;
+        font-weight: bold;
+        font-size: clamp(14px, 5.5vw, 40px);
+        color: var(--ocean-deep);
+        text-align: center;
+        line-height: 1.1;
+        white-space: pre-line;
+      }
       .slot img {
         flex: 1;
         min-height: 0;
@@ -528,7 +543,7 @@
           const chip = document.createElement("div");
           chip.className = "chip";
           chip.dataset.pair = i;
-          chip.textContent = PAIRS[i].word;
+          chip.textContent = PAIRS[i].bottom;
           attachDrag(chip);
           cell.appendChild(chip);
           bank.appendChild(cell);
@@ -584,12 +599,17 @@
             if (s.dataset.pair === chip.dataset.pair) {
               s.classList.add("done");
               s.querySelector(".label").textContent =
-                PAIRS[+chip.dataset.pair].word;
+                PAIRS[+chip.dataset.pair].bottom;
               chip.style.transform = "";
               chip.classList.add("used");
               spawnSparkles(s);
               playMatchJingle();
-              speak(PAIRS[+chip.dataset.pair].word);
+              speak(
+                PAIRS[+chip.dataset.pair].say ||
+                  PAIRS[+chip.dataset.pair].top +
+                    " " +
+                    PAIRS[+chip.dataset.pair].bottom,
+              );
               matches++;
               if (matches === PAIRS.length) setTimeout(showWin, 900);
               return;
