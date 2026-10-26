@@ -195,18 +195,31 @@
           margin-top: 2vh;
         }
 
+        /* 5 buttons: 3 on top row, 2 wider on bottom row */
         .grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(6, 1fr);
           grid-template-rows: repeat(2, 1fr);
           gap: clamp(10px, 2vw, 24px);
-          width: min(85vw, 900px);
-          height: min(70vh, 460px);
+          width: min(90vw, 1000px);
+          height: min(70vh, 400px);
+        }
+
+        .btn:nth-child(-n + 3) {
+          grid-column: span 2;
+        }
+
+        .btn:nth-child(n + 4) {
+          grid-column: span 3;
         }
 
         .btn {
-          font-size: clamp(1rem, 4.5vw, 3.4rem);
-          height: clamp(80px, 45vh, 220px);
+          font-size: clamp(0.9rem, 3vw, 3rem);
+          height: clamp(80px, 32vh, 170px);
+        }
+
+        .btn-icon {
+          height: 70%;
         }
       }
 
@@ -227,24 +240,6 @@
           width: 100vw !important;
           min-width: 100vw !important;
           overflow-x: hidden !important;
-        }
-
-        .grid-wrapper {
-          padding: 1vh 4vw 2vh;
-          margin-top: 1vh;
-        }
-
-        .grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          grid-template-rows: repeat(2, 1fr) !important;
-          width: min(92vw, 500px) !important;
-          height: min(80vh, 220px) !important;
-          gap: clamp(6px, 1.5vw, 14px) !important;
-        }
-
-        .btn {
-          height: clamp(55px, 34vh, 130px) !important;
-          font-size: clamp(1rem, 6vw, 3.4rem) !important;
         }
       }
 
@@ -268,14 +263,14 @@
         .grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: clamp(8px, 5vw, 50px);
+          gap: clamp(8px, 3.5vw, 36px);
           width: 100%;
           max-width: 520px;
         }
 
         .btn {
-          font-size: clamp(1.1rem, 9vw, 3.6rem);
-          height: clamp(80px, 30vw, 250px);
+          font-size: clamp(1.1rem, 8vw, 3.2rem);
+          height: clamp(70px, 24vw, 200px);
         }
       }
 
@@ -289,12 +284,12 @@
         }
 
         .grid-wrapper {
-          padding: 3.5vh 9vw 2vw !important;
+          padding: 2.5vh 9vw 2vw !important;
         }
 
         .btn {
-          height: clamp(80px, 30vw, 180px) !important;
-          font-size: clamp(1rem, 10vw, 3.1rem) !important;
+          height: clamp(70px, 26vw, 140px) !important;
+          font-size: clamp(1rem, 8.5vw, 2.8rem) !important;
         }
       }
     </style>
@@ -311,6 +306,15 @@
       <div class="grid" id="main-grid">
         <a
           class="btn"
+          href="Word up/index.html"
+          style="background-color: orange"
+        >
+          <span class="btn-text">Word Up!</span>
+          <img class="btn-icon" src="images/sw3.png" alt="" />
+        </a>
+
+        <a
+          class="btn"
           href="Match up/index.html"
           style="background-color: orange"
         >
@@ -320,28 +324,25 @@
 
         <a
           class="btn"
-          href="Type Up/index.html"
-          style="background-color: orange"
-        >
-          <span class="btn-text">Type Up!</span>
-          <img class="btn-icon" src="images/kt3.png" alt="" />
-        </a>
-
-        <a
-          class="btn"
-          href="Word up/index.html"
-          style="background-color: orange"
-        >
-          <span class="btn-text">Word Up!</span>
-          <img class="btn-icon" src="images/sw3.png" alt="" />
-        </a>
-        <a
-          class="btn"
           href="Builder/index.html"
           style="background-color: orange"
         >
           <span class="btn-text">Sentence Builder</span>
           <img class="btn-icon" src="images/kb3.png" alt="" />
+        </a>
+
+        <a class="btn" href="Drop3/index.html" style="background-color: orange">
+          <span class="btn-text">Drag and Drop</span>
+          <img class="btn-icon" src="images/drag.png" alt="" />
+        </a>
+
+        <a
+          class="btn"
+          href="Type Up/index.html"
+          style="background-color: orange"
+        >
+          <span class="btn-text">Type Up!</span>
+          <img class="btn-icon" src="images/kt3.png" alt="" />
         </a>
       </div>
     </div>
